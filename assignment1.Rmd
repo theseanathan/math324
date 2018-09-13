@@ -1,0 +1,107 @@
+---
+title: "Assignment 1 - Math 324"
+author: "Sean Darryanto"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+```{r echo=FALSE}
+# Exercise 1
+modified_mortar = c(16.85, 16.40, 17.21, 16.35, 16.52, 17.04, 16.96, 17.15, 16.59, 16.57)
+unmodified_mortar = c(16.62, 16.75, 17.37, 17.12, 16.98, 16.87, 17.34, 17.02, 17.08, 17.27)
+
+mod_mean = mean(modified_mortar)
+mod_median = median(modified_mortar)
+unmod_mean = mean(unmodified_mortar)
+unmod_median = median(unmodified_mortar)
+
+mod_sd = sd(modified_mortar)
+mod_var = sd(modified_mortar)
+mod_iqr = IQR(modified_mortar)
+unmod_sd = sd(unmodified_mortar)
+unmod_var = sd(unmodified_mortar)
+unmod_iqr = IQR(unmodified_mortar)
+
+# Exercise 2
+student_courses = c(4, 2, 3, 3, 1, 5, 4, 2, 2, 4, 5, 6, 4, 3, 3, 4, 4, 5, 6, 1, 2, 2, 3, 4, 3, 3, 5, 2, 1, 3)
+student_courses.freq = table(student_courses)
+sum_3_courses = sum(student_courses >= 3)
+
+# Exercise 3
+a = seq(2, 24, by=2)
+a_log = c(log(a))
+a_no_2_5 = a_log[-seq(2, 5)]
+length_a = length(a_no_2_5)
+descend_sort_a = sort(a_no_2_5, decreasing=TRUE)
+```
+
+## Exercise 1
+An engineer is studying the formulation of a Portland cement mortar. He has added a polymer latex emulsion during mixing to determine if this impacts tension bond strength of the mortar. The experimenter prepared 10 samples of the original formulation and 10 samples of the modified formulation. The tension bond strength data from this experiment are shown in the following table.
+
+<b>Modified mortar set:</b> [`r modified_mortar`] <br>
+<b>Unmodified mortar set:</b> [`r unmodified_mortar`]
+
+<b>Mean of modified mortar:</b> `r mod_mean` <br>
+<b>Mean of unmodified mortar:</b> `r unmod_mean`
+
+<b>Median of modified mortar:</b> `r mod_median` <br>
+<b>Median of unmodified mortar:</b> `r unmod_median`
+
+<b>Standard deviation of modified mortar:</b> `r mod_sd` <br>
+<b>Variance of modified mortar:</b> `r mod_var` <br>
+<b>IQR of modified mortar:</b> `r mod_iqr`
+
+<b>Standard deviation of unmodified mortar:</b> `r unmod_sd` <br>
+<b>Variance of unmodified mortar:</b> `r unmod_var` <br>
+<b>IQR of unmodified mortar:</b> `r unmod_iqr`
+
+```{r echo=FALSE}
+hist(modified_mortar, main="Histogram of modified mortars", xlab="Modified Mortar", col=blues9)
+```
+<br><b>Comments:</b> The modified mortars have a spread out data set, but one noticeable thing is that there is a large frequency between 16.2 and 16.6.
+<br>
+
+```{r echo=FALSE}
+hist(unmodified_mortar, main="Histogram of unmodified mortars", xlab="Unmodified Mortar", col=blues9)
+```
+<br><b>Comments:</b> The unmodified mortars have a more even data set, and only spans between 16.6 and 17.4.
+<br>
+
+```{r echo=FALSE}
+boxplot(list(modified_mortar=modified_mortar, unmodified_mortar=unmodified_mortar), main="Comparative box-plot of modified and unmodified mortars", names=c("Modified Mortar", "Unmodified Mortar"), col=blues9)
+```
+<br><b>Comments:</b> Unmodified mortars have a lower IQR and are generally a higher tension bond strength.
+
+
+## Exercise 2
+A survey was conducted in a class where 30 students are enrolled. The survey question is that how many courses is the student currently taking this semester. The response data are shown in the following.
+
+<b>Number of courses taken by students set: </b> `r student_courses`
+
+<b> Frequency table: </b> `r student_courses.freq`
+
+```{r echo=FALSE}
+pie(student_courses.freq, col=blues9, main="Number of Courses Taken by Students.")
+```
+
+```{r echo=FALSE}
+barplot(student_courses.freq, col=blues9, main="Number of Courses Taken by Students.", xlab="Number of Courses Taken by Students")
+```
+
+<b>Number of all students taking more than 3 courses: </b> `r sum_3_courses`
+
+## Exercise 2
+<b>(a) Sequence of 2, 4, ..., 24: </b> `r a`
+
+<b>(b) Sequence of log(2), log(4), ..., log(24): </b> `r a_log`
+
+<b>(c) List in (b) without elements 2 through 5: </b> `r a_no_2_5`
+
+<b>(d) Length of (c): </b> `r length_a`
+
+<b>(e) Sorted (c) in descending order: </b> `r descend_sort_a`
