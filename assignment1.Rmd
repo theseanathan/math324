@@ -2,8 +2,8 @@
 title: "Assignment 1 - Math 324"
 author: "Sean Darryanto"
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -81,9 +81,12 @@ boxplot(list(modified_mortar=modified_mortar, unmodified_mortar=unmodified_morta
 ## Exercise 2
 A survey was conducted in a class where 30 students are enrolled. The survey question is that how many courses is the student currently taking this semester. The response data are shown in the following.
 
-<b>Number of courses taken by students set: </b> `r student_courses`
+<b>Number of courses taken by students set: </b> [`r student_courses`]
 
-<b> Frequency table: </b> `r student_courses.freq`
+<b> Frequency table: </b> 
+```{r}
+table(student_courses)
+```
 
 ```{r}
 pie(student_courses.freq, col=blues9, main="Number of Courses Taken by Students.")
@@ -97,12 +100,12 @@ barplot(student_courses.freq, col=blues9, main="Number of Courses Taken by Stude
 <br>
 
 ## Exercise 3
-<b>(a) Sequence of 2, 4, ..., 24: </b> `r a`
+<b>(a) Sequence of 2, 4, ..., 24: </b> [`r a`]
 
-<b>(b) Sequence of log(2), log(4), ..., log(24): </b> `r a_log`
+<b>(b) Sequence of log(2), log(4), ..., log(24): </b> [`r a_log`]
 
-<b>(c) List in (b) without elements 2 through 5: </b> `r a_no_2_5`
+<b>(c) List in (b) without elements 2 through 5: </b> [`r a_no_2_5`]
 
 <b>(d) Length of (c): </b> `r length_a`
 
-<b>(e) Sorted (c) in descending order: </b> `r descend_sort_a`
+<b>(e) Sorted (c) in descending order: </b> [`r descend_sort_a`]
