@@ -2,15 +2,15 @@
 title: "Assignment 1 - Math 324"
 author: "Sean Darryanto"
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
 ```
-```{r echo=FALSE}
+```{r}
 # Exercise 1
 modified_mortar = c(16.85, 16.40, 17.21, 16.35, 16.52, 17.04, 16.96, 17.15, 16.59, 16.57)
 unmodified_mortar = c(16.62, 16.75, 17.37, 17.12, 16.98, 16.87, 17.34, 17.02, 17.08, 17.27)
@@ -60,23 +60,23 @@ An engineer is studying the formulation of a Portland cement mortar. He has adde
 <b>Variance of unmodified mortar:</b> `r unmod_var` <br>
 <b>IQR of unmodified mortar:</b> `r unmod_iqr`
 
-```{r echo=FALSE}
+```{r}
 hist(modified_mortar, main="Histogram of modified mortars", xlab="Modified Mortar", col=blues9)
 ```
 <br><b>Comments:</b> The modified mortars have a spread out data set, but one noticeable thing is that there is a large frequency between 16.2 and 16.6.
 <br>
 
-```{r echo=FALSE}
+```{r}
 hist(unmodified_mortar, main="Histogram of unmodified mortars", xlab="Unmodified Mortar", col=blues9)
 ```
 <br><b>Comments:</b> The unmodified mortars have a more even data set, and only spans between 16.6 and 17.4.
 <br>
 
-```{r echo=FALSE}
+```{r}
 boxplot(list(modified_mortar=modified_mortar, unmodified_mortar=unmodified_mortar), main="Comparative box-plot of modified and unmodified mortars", names=c("Modified Mortar", "Unmodified Mortar"), col=blues9)
 ```
 <br><b>Comments:</b> Unmodified mortars have a lower IQR and are generally a higher tension bond strength.
-
+<br>
 
 ## Exercise 2
 A survey was conducted in a class where 30 students are enrolled. The survey question is that how many courses is the student currently taking this semester. The response data are shown in the following.
@@ -85,17 +85,18 @@ A survey was conducted in a class where 30 students are enrolled. The survey que
 
 <b> Frequency table: </b> `r student_courses.freq`
 
-```{r echo=FALSE}
+```{r}
 pie(student_courses.freq, col=blues9, main="Number of Courses Taken by Students.")
 ```
 
-```{r echo=FALSE}
+```{r}
 barplot(student_courses.freq, col=blues9, main="Number of Courses Taken by Students.", xlab="Number of Courses Taken by Students")
 ```
 
 <b>Number of all students taking more than 3 courses: </b> `r sum_3_courses`
+<br>
 
-## Exercise 2
+## Exercise 3
 <b>(a) Sequence of 2, 4, ..., 24: </b> `r a`
 
 <b>(b) Sequence of log(2), log(4), ..., log(24): </b> `r a_log`
